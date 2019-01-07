@@ -152,7 +152,7 @@ function shouldLinkParents(node) {
 
 // Returns true if we should link the node.
 function shouldLink(node) {
-  if (EXCLUDED_TAGS.hasOwnProperty(node.tagName) && EXCLUDED_TAGS[node.tagName] || isNodeEditable(node)) {
+  if (EXCLUDED_TAGS[node.tagName] || isNodeEditable(node)) {
     return false;
   } else {
     return true;
@@ -203,7 +203,7 @@ function nodeFilter(node) {
       }
 
       // Skip node and all descendants of any excluded tags
-      if (EXCLUDED_TAGS.hasOwnProperty(node.tagName) && EXCLUDED_TAGS[node.tagName]) {
+      if (EXCLUDED_TAGS[node.tagName]) {
         return NodeFilter.FILTER_REJECT;
       }
 
